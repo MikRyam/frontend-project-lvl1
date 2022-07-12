@@ -8,3 +8,6 @@
 
 ### Asciinema with an example of installing a package, starting the game, winning and losing a player
 [![asciicast](https://asciinema.org/a/7aSCJTf9p88GW4IV0L3Y1yYVk.svg)](https://asciinema.org/a/7aSCJTf9p88GW4IV0L3Y1yYVk)
+
+### Demo: brain-calc game
+[![asciicast](https://asciinema.org/a/tsGyGMzoXgHFUhq5w51WbUrp1.svg)](https://asciinema.org/a/tsGyGMzoXgHFUhq5w51WbUrp1)
