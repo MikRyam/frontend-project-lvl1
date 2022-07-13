@@ -19,3 +19,8 @@
 ### Demo: brain-gcd game
 Find the greatest common divisor of given numbers.
 [![asciicast](https://asciinema.org/a/sfc6IhwGKlVTf41wweCak92SQ.svg)](https://asciinema.org/a/sfc6IhwGKlVTf41wweCak92SQ)
+
+
+### Demo: brain-progression game
+Find missing number in the progression.
+[![asciicast](https://asciinema.org/a/J5KzWEuMOZHZSQHkE4X7U3Z8j.svg)](https://asciinema.org/a/J5KzWEuMOZHZSQHkE4X7U3Z8j)
