@@ -15,7 +15,7 @@ const gameRound = () => {
   return removed.join();
 };
 
-const gameGcd = () => {
+const gameProgression = () => {
   greetings();
   console.log('What number is missing in the progression?');
   for (let i = 0; i < 3; i += 1) {
@@ -26,4 +26,4 @@ const gameGcd = () => {
   return congrats();
 };
 
-export default gameGcd;
+export default gameProgression;
