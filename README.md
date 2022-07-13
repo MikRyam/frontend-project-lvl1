@@ -11,3 +11,7 @@
 
 ### Demo: brain-calc game
 [![asciicast](https://asciinema.org/a/tsGyGMzoXgHFUhq5w51WbUrp1.svg)](https://asciinema.org/a/tsGyGMzoXgHFUhq5w51WbUrp1)
+
+### Demo: brain-gcd game
+### Find the greatest common divisor of given numbers.
+[![asciicast](https://asciinema.org/a/sfc6IhwGKlVTf41wweCak92SQ.svg)](https://asciinema.org/a/sfc6IhwGKlVTf41wweCak92SQ)
