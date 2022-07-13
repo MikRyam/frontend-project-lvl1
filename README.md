@@ -24,3 +24,8 @@ Find the greatest common divisor of given numbers.
 ### Demo: brain-progression game
 Find missing number in the progression.
 [![asciicast](https://asciinema.org/a/J5KzWEuMOZHZSQHkE4X7U3Z8j.svg)](https://asciinema.org/a/J5KzWEuMOZHZSQHkE4X7U3Z8j)
+
+
+### Demo: brain-prime game
+Is given number prime?
+[![asciicast](https://asciinema.org/a/CEoil818BHNcU5vKiVodIFGNh.svg)](https://asciinema.org/a/CEoil818BHNcU5vKiVodIFGNh)
