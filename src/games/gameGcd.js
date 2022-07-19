@@ -1,4 +1,4 @@
-import greetings, { gameScenario, congrats } from '../src/index.js';
+import greetings, { gameScenario, congrats } from '../index.js';
 
 const gameRound = () => {
   let randomNumber1 = Math.floor(Math.random() * 100) + 1;
