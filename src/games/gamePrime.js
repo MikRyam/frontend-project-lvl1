@@ -1,29 +1,25 @@
-import greetings, { gameScenario, congrats } from '../src/index.js';
+import gameScenario from '../index.js';
 
 const gameRound = () => {
   const randomNumber = Math.floor(Math.random() * 3570) + 2;
-  console.log(`Question: ${randomNumber}`);
+  const roundQuestion = `Question: ${randomNumber}`;
+  let correctAnswer = 'yes';
   if (randomNumber === 2) {
-    return 'yes';
+    return correctAnswer;
   }
   const limit = Math.sqrt(randomNumber);
   for (let i = 2; i < limit; i += 1) {
     if (randomNumber % i === 0) {
-      return 'no';
+      correctAnswer = 'no';
+      break;
     }
   }
-  return 'yes';
+  return [roundQuestion, correctAnswer];
 };
 
 const gamePrime = () => {
-  greetings();
-  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-  for (let i = 0; i < 3; i += 1) {
-    if (!gameScenario(gameRound())) {
-      return false;
-    }
-  }
-  return congrats();
+  const gameRules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+  gameScenario(gameRules, gameRound);
 };
 
 export default gamePrime;

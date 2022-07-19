@@ -1,9 +1,9 @@
-import greetings, { gameScenario, congrats } from '../index.js';
+import gameScenario from '../index.js';
 
 const gameRound = () => {
   let randomNumber1 = Math.floor(Math.random() * 100) + 1;
   let randomNumber2 = Math.floor(Math.random() * 100) + 1;
-  console.log(`Question: ${randomNumber1} ${randomNumber2}`);
+  const roundQuestion = `Question: ${randomNumber1} ${randomNumber2}`;
   while (randomNumber1 !== randomNumber2) {
     if (randomNumber1 > randomNumber2) {
       randomNumber1 -= randomNumber2;
@@ -11,20 +11,13 @@ const gameRound = () => {
       randomNumber2 -= randomNumber1;
     }
   }
-  const gcdResult = (randomNumber1).toString();
-
-  return gcdResult;
+  const correctAnswer = (randomNumber1).toString();
+  return [roundQuestion, correctAnswer];
 };
 
 const gameGcd = () => {
-  greetings();
-  console.log('Find the greatest common divisor of given numbers.');
-  for (let i = 0; i < 3; i += 1) {
-    if (!gameScenario(gameRound())) {
-      return false;
-    }
-  }
-  return congrats();
+  const gameRules = 'Find the greatest common divisor of given numbers.';
+  gameScenario(gameRules, gameRound);
 };
 
 export default gameGcd;

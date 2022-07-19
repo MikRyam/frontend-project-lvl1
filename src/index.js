@@ -1,27 +1,21 @@
 import readlineSync from 'readline-sync';
 
-let userName = '';
-
-const greetings = () => {
+const gameScenario = (gameRules, gameRound) => {
   console.log('Welcome to the Brain Games!');
-  userName = readlineSync.question('May I have your name? ');
+  const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
-  return userName;
-};
-
-const gameScenario = (gameRound) => {
-  const correctAnswer = gameRound;
-  const userAnswer = readlineSync.question('Your answer: ');
-  if (userAnswer === correctAnswer) {
-    console.log('Correct!');
-  } else {
-    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${userName}!`);
+  console.log(gameRules);
+  for (let i = 0; i < 3; i += 1) {
+    const [roundQuestion, correctAnswer] = gameRound();
+    console.log(roundQuestion);
+    const userAnswer = readlineSync.question('Your answer: ');
+    if (userAnswer === correctAnswer) {
+      console.log('Correct!');
+    } else {
+      return console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${userName}!`);
+    }
   }
-  return userAnswer === correctAnswer;
+  return console.log(`Congratulations, ${userName}!`);
 };
 
-const congrats = () => console.log(`Congratulations, ${userName}!`);
-
-export { gameScenario, congrats };
-
-export default greetings;
+export default gameScenario;

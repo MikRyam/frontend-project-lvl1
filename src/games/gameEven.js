@@ -1,21 +1,15 @@
-import greetings, { gameScenario, congrats } from '../index.js';
+import gameScenario from '../index.js';
 
 const gameRound = () => {
   const randomNumber = Math.floor(Math.random() * 100) + 1;
-  const result = randomNumber % 2 === 0 ? 'yes' : 'no';
-  console.log(`Question: ${randomNumber}`);
-  return result;
+  const correctAnswer = randomNumber % 2 === 0 ? 'yes' : 'no';
+  const roundQuestion = `Question: ${randomNumber}`;
+  return [roundQuestion, correctAnswer];
 };
 
 const gameEven = () => {
-  greetings();
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
-  for (let i = 0; i < 3; i += 1) {
-    if (!gameScenario(gameRound())) {
-      return false;
-    }
-  }
-  return congrats();
+  const gameRules = 'Answer "yes" if the number is even, otherwise answer "no".';
+  gameScenario(gameRules, gameRound);
 };
 
 export default gameEven;

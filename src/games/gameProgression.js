@@ -1,4 +1,4 @@
-import greetings, { gameScenario, congrats } from '../src/index.js';
+import gameScenario from '../index.js';
 
 const gameRound = () => {
   const startNumber = Math.floor(Math.random() * 30) + 1;
@@ -11,19 +11,14 @@ const gameRound = () => {
   }
   const randomIndex = Math.floor(Math.random() * 8) + 1;
   const removed = arr.splice(randomIndex, 1, '..');
-  console.log(`Question: ${arr.join(' ')}`);
-  return removed.join();
+  const roundQuestion = `Question: ${arr.join(' ')}`;
+  const correctAnswer = removed.join();
+  return [roundQuestion, correctAnswer];
 };
 
 const gameProgression = () => {
-  greetings();
-  console.log('What number is missing in the progression?');
-  for (let i = 0; i < 3; i += 1) {
-    if (!gameScenario(gameRound())) {
-      return false;
-    }
-  }
-  return congrats();
+  const gameRules = 'What number is missing in the progression?';
+  gameScenario(gameRules, gameRound);
 };
 
 export default gameProgression;
