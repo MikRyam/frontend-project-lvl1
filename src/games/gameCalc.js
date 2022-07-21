@@ -1,6 +1,6 @@
-import gameScenario from '../index.js';
+import startGame from '../index.js';
 
-const gameRound = () => {
+const genGameRound = () => {
   const randomNumber1 = Math.floor(Math.random() * 100) + 1;
   const randomNumber2 = Math.floor(Math.random() * 10) + 1;
   const operators = ['+', '-', '*'];
@@ -17,15 +17,15 @@ const gameRound = () => {
       correctAnswer = (randomNumber1 * randomNumber2).toString();
       break;
     default:
-      correctAnswer = '';
+      correctAnswer = (randomNumber1 + randomNumber2).toString();
   }
   const roundQuestion = `Question: ${randomNumber1} ${operator} ${randomNumber2}`;
   return [roundQuestion, correctAnswer];
 };
 
-const gameCalc = () => {
-  const gameRules = 'What is the result of the expression?';
-  gameScenario(gameRules, gameRound);
+const startGameCalc = () => {
+  const gameRule = 'What is the result of the expression?';
+  startGame(gameRule, genGameRound);
 };
 
-export default gameCalc;
+export default startGameCalc;

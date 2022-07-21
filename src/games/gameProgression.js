@@ -1,6 +1,6 @@
-import gameScenario from '../index.js';
+import startGame from '../index.js';
 
-const gameRound = () => {
+const genGameRound = () => {
   const startNumber = Math.floor(Math.random() * 30) + 1;
   const step = Math.floor(Math.random() * 10) + 1;
   const arr = [startNumber];
@@ -16,9 +16,9 @@ const gameRound = () => {
   return [roundQuestion, correctAnswer];
 };
 
-const gameProgression = () => {
-  const gameRules = 'What number is missing in the progression?';
-  gameScenario(gameRules, gameRound);
+const startGameProgression = () => {
+  const gameRule = 'What number is missing in the progression?';
+  startGame(gameRule, genGameRound);
 };
 
-export default gameProgression;
+export default startGameProgression;

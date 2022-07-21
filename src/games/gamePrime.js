@@ -1,6 +1,6 @@
-import gameScenario from '../index.js';
+import startGame from '../index.js';
 
-const gameRound = () => {
+const genGameRound = () => {
   const randomNumber = Math.floor(Math.random() * 3570) + 2;
   const roundQuestion = `Question: ${randomNumber}`;
   let correctAnswer = 'yes';
@@ -17,9 +17,9 @@ const gameRound = () => {
   return [roundQuestion, correctAnswer];
 };
 
-const gamePrime = () => {
-  const gameRules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  gameScenario(gameRules, gameRound);
+const startGamePrime = () => {
+  const gameRule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+  startGame(gameRule, genGameRound);
 };
 
-export default gamePrime;
+export default startGamePrime;

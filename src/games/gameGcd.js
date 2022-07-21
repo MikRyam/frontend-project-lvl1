@@ -1,6 +1,6 @@
-import gameScenario from '../index.js';
+import startGame from '../index.js';
 
-const gameRound = () => {
+const genGameRound = () => {
   let randomNumber1 = Math.floor(Math.random() * 100) + 1;
   let randomNumber2 = Math.floor(Math.random() * 100) + 1;
   const roundQuestion = `Question: ${randomNumber1} ${randomNumber2}`;
@@ -15,9 +15,9 @@ const gameRound = () => {
   return [roundQuestion, correctAnswer];
 };
 
-const gameGcd = () => {
-  const gameRules = 'Find the greatest common divisor of given numbers.';
-  gameScenario(gameRules, gameRound);
+const startGameGcd = () => {
+  const gameRule = 'Find the greatest common divisor of given numbers.';
+  startGame(gameRule, genGameRound);
 };
 
-export default gameGcd;
+export default startGameGcd;
