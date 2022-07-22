@@ -7,9 +7,6 @@ const genGameRound = () => {
   const operator = operators[Math.floor(Math.random() * 3)];
   let correctAnswer = '';
   switch (operator) {
-    case '+':
-      correctAnswer = (randomNumber1 + randomNumber2).toString();
-      break;
     case '-':
       correctAnswer = (randomNumber1 - randomNumber2).toString();
       break;
