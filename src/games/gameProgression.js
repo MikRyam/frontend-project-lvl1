@@ -1,18 +1,24 @@
 import startGame from '../index.js';
+import genRandomNumber from './serviceGames.js';
+
+const genProgression = () => {
+  const startNumber = genRandomNumber(100);
+  const step = genRandomNumber(10);
+  const progressionLength = genRandomNumber(10, 5);
+  const progression = [startNumber];
+  for (let i = 1; i < progressionLength; i += 1) {
+    const nextNumber = startNumber + step * i;
+    progression.push(nextNumber);
+  }
+  const randomIndex = genRandomNumber(progressionLength - 1);
+  const removedItem = progression.splice(randomIndex, 1, '..');
+  return [progression.join(' '), removedItem.join()];
+};
 
 const genGameRound = () => {
-  const startNumber = Math.floor(Math.random() * 30) + 1;
-  const step = Math.floor(Math.random() * 10) + 1;
-  const arr = [startNumber];
-  let nextNumber = startNumber;
-  for (let i = 0; i < 9; i += 1) {
-    nextNumber += step;
-    arr.push(nextNumber);
-  }
-  const randomIndex = Math.floor(Math.random() * 8) + 1;
-  const removed = arr.splice(randomIndex, 1, '..');
-  const roundQuestion = `Question: ${arr.join(' ')}`;
-  const correctAnswer = removed.join();
+  const [progression, removedItem] = genProgression();
+  const roundQuestion = progression;
+  const correctAnswer = removedItem;
   return [roundQuestion, correctAnswer];
 };
 

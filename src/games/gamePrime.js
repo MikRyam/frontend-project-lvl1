@@ -1,19 +1,23 @@
 import startGame from '../index.js';
+import genRandomNumber from './serviceGames.js';
 
-const genGameRound = () => {
-  const randomNumber = Math.floor(Math.random() * 3570) + 2;
-  const roundQuestion = `Question: ${randomNumber}`;
-  let correctAnswer = 'yes';
+const isPrime = (randomNumber) => {
   if (randomNumber === 2) {
-    return correctAnswer;
+    return true;
   }
   const limit = Math.sqrt(randomNumber);
   for (let i = 2; i < limit; i += 1) {
     if (randomNumber % i === 0) {
-      correctAnswer = 'no';
-      break;
+      return false;
     }
   }
+  return true;
+};
+
+const genGameRound = () => {
+  const randomNumber = genRandomNumber(3570, 2);
+  const roundQuestion = randomNumber;
+  const correctAnswer = isPrime(randomNumber) ? 'yes' : 'no';
   return [roundQuestion, correctAnswer];
 };
 

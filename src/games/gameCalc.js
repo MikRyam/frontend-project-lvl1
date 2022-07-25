@@ -1,22 +1,31 @@
 import startGame from '../index.js';
+import genRandomNumber from './serviceGames.js';
 
-const genGameRound = () => {
-  const randomNumber1 = Math.floor(Math.random() * 100) + 1;
-  const randomNumber2 = Math.floor(Math.random() * 10) + 1;
-  const operators = ['+', '-', '*'];
-  const operator = operators[Math.floor(Math.random() * 3)];
-  let correctAnswer = '';
+const calculate = (operator, randomNumber1, randomNumber2) => {
+  let result;
   switch (operator) {
+    case '+':
+      result = randomNumber1 + randomNumber2;
+      break;
     case '-':
-      correctAnswer = (randomNumber1 - randomNumber2).toString();
+      result = randomNumber1 - randomNumber2;
       break;
     case '*':
-      correctAnswer = (randomNumber1 * randomNumber2).toString();
+      result = randomNumber1 * randomNumber2;
       break;
     default:
-      correctAnswer = (randomNumber1 + randomNumber2).toString();
+      result = null;
   }
-  const roundQuestion = `Question: ${randomNumber1} ${operator} ${randomNumber2}`;
+  return result.toString();
+};
+
+const genGameRound = () => {
+  const randomNumber1 = genRandomNumber();
+  const randomNumber2 = genRandomNumber(10);
+  const operators = ['+', '-', '*'];
+  const operator = operators[genRandomNumber(operators.length - 1)];
+  const correctAnswer = calculate(operator, randomNumber1, randomNumber2);
+  const roundQuestion = `${randomNumber1} ${operator} ${randomNumber2}`;
   return [roundQuestion, correctAnswer];
 };
 

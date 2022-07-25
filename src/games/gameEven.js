@@ -1,9 +1,12 @@
 import startGame from '../index.js';
+import genRandomNumber from './serviceGames.js';
+
+const isEven = (randomNumber) => randomNumber % 2 === 0;
 
 const genGameRound = () => {
-  const randomNumber = Math.floor(Math.random() * 100) + 1;
-  const correctAnswer = randomNumber % 2 === 0 ? 'yes' : 'no';
-  const roundQuestion = `Question: ${randomNumber}`;
+  const randomNumber = genRandomNumber();
+  const correctAnswer = isEven(randomNumber) ? 'yes' : 'no';
+  const roundQuestion = randomNumber;
   return [roundQuestion, correctAnswer];
 };
 

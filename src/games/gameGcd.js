@@ -1,17 +1,31 @@
 import startGame from '../index.js';
+import genRandomNumber from './serviceGames.js';
 
-const genGameRound = () => {
-  let randomNumber1 = Math.floor(Math.random() * 100) + 1;
-  let randomNumber2 = Math.floor(Math.random() * 100) + 1;
-  const roundQuestion = `Question: ${randomNumber1} ${randomNumber2}`;
-  while (randomNumber1 !== randomNumber2) {
-    if (randomNumber1 > randomNumber2) {
-      randomNumber1 -= randomNumber2;
+const getGCD = (num1, num2) => {
+  let gcd;
+  let number1 = num1;
+  let number2 = num2;
+  while (number1 > 0 && number2 > 0) {
+    if (number1 > number2) {
+      number1 %= number2;
+      if (number1 === 0) {
+        gcd = number2;
+      }
     } else {
-      randomNumber2 -= randomNumber1;
+      number2 %= number1;
+      if (number2 === 0) {
+        gcd = number1;
+      }
     }
   }
-  const correctAnswer = (randomNumber1).toString();
+  return gcd;
+};
+
+const genGameRound = () => {
+  const randomNumber1 = genRandomNumber(1000);
+  const randomNumber2 = genRandomNumber(1000);
+  const roundQuestion = `${randomNumber1} ${randomNumber2}`;
+  const correctAnswer = getGCD(randomNumber1, randomNumber2).toString();
   return [roundQuestion, correctAnswer];
 };
 
