@@ -1,10 +1,9 @@
 import startGame from '../index.js';
-import genRandomNumber from './serviceGames.js';
+import genRandomNumber from '../genRandomNumber.js';
+
+const gameRule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrime = (randomNumber) => {
-  if (randomNumber === 2) {
-    return true;
-  }
   const limit = Math.sqrt(randomNumber);
   for (let i = 2; i < limit; i += 1) {
     if (randomNumber % i === 0) {
@@ -15,14 +14,12 @@ const isPrime = (randomNumber) => {
 };
 
 const genGameRound = () => {
-  const randomNumber = genRandomNumber(3570, 2);
-  const roundQuestion = randomNumber;
-  const correctAnswer = isPrime(randomNumber) ? 'yes' : 'no';
-  return [roundQuestion, correctAnswer];
+  const question = genRandomNumber(3570, 2);
+  const correctAnswer = isPrime(question) ? 'yes' : 'no';
+  return [question, correctAnswer];
 };
 
 const startGamePrime = () => {
-  const gameRule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
   startGame(gameRule, genGameRound);
 };
 

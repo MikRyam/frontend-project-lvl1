@@ -8,8 +8,8 @@ const startGame = (gameRule, genGameRound) => {
   console.log(`Hello, ${userName}!`);
   console.log(gameRule);
   for (let i = 0; i < numberOfRounds; i += 1) {
-    const [roundQuestion, correctAnswer] = genGameRound();
-    console.log(`Question: ${roundQuestion}`);
+    const [question, correctAnswer] = genGameRound();
+    console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
     if (userAnswer !== correctAnswer) {
       return console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${userName}!`);
