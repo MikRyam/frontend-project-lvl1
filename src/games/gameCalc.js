@@ -14,7 +14,7 @@ const calculate = (operator, randomNumber1, randomNumber2) => {
       result = randomNumber1 * randomNumber2;
       break;
     default:
-      result = null;
+      throw new Error(`Unexpected operator '${operator}'`);
   }
   return result.toString();
 };
