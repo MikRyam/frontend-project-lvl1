@@ -5,7 +5,7 @@ const gameRule = 'Answer "yes" if given number is prime. Otherwise answer "no".'
 
 const isPrime = (randomNumber) => {
   const limit = Math.sqrt(randomNumber);
-  for (let i = 2; i < limit; i += 1) {
+  for (let i = 2; i <= limit; i += 1) {
     if (randomNumber % i === 0) {
       return false;
     }
