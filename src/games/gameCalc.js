@@ -4,21 +4,16 @@ import genRandomNumber from '../genRandomNumber.js';
 const gameRule = 'What is the result of the expression?';
 
 const calculate = (operator, randomNumber1, randomNumber2) => {
-  let result;
   switch (operator) {
     case '+':
-      result = randomNumber1 + randomNumber2;
-      break;
+      return randomNumber1 + randomNumber2;
     case '-':
-      result = randomNumber1 - randomNumber2;
-      break;
+      return randomNumber1 - randomNumber2;
     case '*':
-      result = randomNumber1 * randomNumber2;
-      break;
+      return randomNumber1 * randomNumber2;
     default:
       throw new Error(`Unexpected operator '${operator}'`);
   }
-  return result;
 };
 
 const operators = ['+', '-', '*'];

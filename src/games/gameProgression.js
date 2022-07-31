@@ -20,7 +20,7 @@ const genGameRound = () => {
   const randomIndex = genRandomNumber(progressionLength - 1);
   const removedItem = progression.splice(randomIndex, 1, '..');
   const question = progression.join(' ');
-  const correctAnswer = removedItem.join();
+  const correctAnswer = removedItem[0].toString();
   return [question, correctAnswer];
 };
 
