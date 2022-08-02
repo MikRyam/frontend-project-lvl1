@@ -3,7 +3,7 @@ import genRandomNumber from '../genRandomNumber.js';
 
 const gameRule = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-const isEven = (randomNumber) => randomNumber % 2 === 0;
+const isEven = (number) => (number % 2 === 0);
 
 const genGameRound = () => {
   const question = genRandomNumber();
